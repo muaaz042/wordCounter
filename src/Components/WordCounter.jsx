@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Bounce, Flip, ToastContainer, Zoom, toast } from 'react-toastify';
+import { Flip, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const WordCounter = () => {
