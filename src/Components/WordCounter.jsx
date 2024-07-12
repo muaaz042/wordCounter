@@ -98,7 +98,7 @@ const WordCounter = () => {
                 onChange={handleChange}
                 value={text}
                 placeholder='Write your text here'
-                className='border-2 border-black p-3 my-4 w-full rounded-2xl h-72 outline-purple-300 shadow-xl'
+                className='border-2 border-black p-3 my-4 w-full rounded-2xl h-72 outline-purple-500 shadow-xl'
             ></textarea>
             <div className='flex justify-evenly items-center lg:gap-10 sm:gap-4 gap-2 w-full mt-8 flex-wrap'>
                 <button onClick={handleUpper} className='border-2 border-purple-300 lg:px-6 md:px-4 sm:px-2 px-1 md:py-1 py-0 rounded-xl bg-purple-300 hover:bg-white shadow-lg'>UPPER CASE</button>
