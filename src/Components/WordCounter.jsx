@@ -4,20 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const WordCounter = () => {
     const [text, setText] = useState('');
-    const [time, setTime] = useState(0);
-    const [isTyping, setIsTyping] = useState(false);
-    const timerRef = useRef(null);
-
-    useEffect(() => {
-        if (isTyping) {
-            timerRef.current = setInterval(() => {
-                setTime((prevTime) => prevTime + 1);
-            }, 1000);
-        } else if (!isTyping && time !== 0) {
-            clearInterval(timerRef.current);
-        }
-        return () => clearInterval(timerRef.current);
-    }, [isTyping]);
 
     const handleUpper = () => {
         setText(text.toUpperCase());
@@ -49,25 +35,12 @@ const WordCounter = () => {
 
     const handleClear = () => {
         setText('');
-        setTime(0);
     };
 
     const handleChange = (e) => {
         setText(e.target.value);
         setIsTyping(true);
     };
-
-    useEffect(() => {
-        if (text === '') {
-            setIsTyping(false);
-        } else {
-            const typingTimeout = setTimeout(() => {
-                setIsTyping(false);
-            }, 1000);
-
-            return () => clearTimeout(typingTimeout);
-        }
-    }, [text]);
 
     const countWords = (text) => {
         return text.split(/\s+/).filter(word => word.trim().length > 0).length;
@@ -89,9 +62,6 @@ const WordCounter = () => {
                 </div>
                 <div className='bg-white shadow-lg hover:shadow-none hover:bg-purple-300 px-6 py-1 rounded-lg'>
                     Paragraphs : {countParagraphs(text)}
-                </div>
-                <div className='bg-white shadow-lg hover:shadow-none hover:bg-purple-300 px-6 py-1 rounded-lg'>
-                    Timer : {time} s
                 </div>
             </div>
             <textarea
